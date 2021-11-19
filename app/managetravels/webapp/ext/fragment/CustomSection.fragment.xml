@@ -30,6 +30,7 @@
 					metaPath="@com.sap.vocabularies.UI.v1.Chart"
 					personalization="Type,Item"
 					selectionMode="Single"
+					selectionChange="handler.onChartSelectionChanged"
 				/>
 				<macros:Table
 					metaPath="to_Booking@com.sap.vocabularies.UI.v1.LineItem"
