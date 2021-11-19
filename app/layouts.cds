@@ -92,7 +92,13 @@ annotate TravelService.Travel with @UI : {
         ID     : 'Dates',
         Target : '@UI.FieldGroup#Dates',
         Label  : '{i18n>Dates}'
-      }
+      },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Sustainability}',
+            ID : 'i18nSustainability',
+            Target : '@UI.FieldGroup#i18nSustainability',
+        }
     ]
   }, {  // booking list
       $Type  : 'UI.ReferenceFacet',
@@ -211,6 +217,13 @@ annotate TravelService.Travel with {
 annotate TravelService.Travel with {
     Description @UI.MultiLineText : true
 };
+annotate TravelService.Travel with @(
+    UI.FieldGroup #i18nSustainability : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+        ],
+    }
+);
 // Exercise 5: Booking entity Chart annotation
 
 
