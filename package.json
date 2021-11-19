@@ -13,6 +13,7 @@
     "passport": "^0.4.1"
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.90.14",
     "chai": "^4.3.0",
     "chai-as-promised": "^7.1.1",
     "chai-subset": "^1.6.0",
@@ -25,7 +26,8 @@
   },
   "scripts": {
     "start": "cds run",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "watch-managetravels": "PORT=4004 cds watch --open managetravels/webapp/index.html?sap-ui-xx-viewCache=false#fe-lrop-v4"
   },
   "cds": {
     "requires": {
@@ -56,5 +58,8 @@
     "testTimeout": 20000
   },
   "license": "SAP SAMPLE CODE LICENSE",
-  "private": true
+  "private": true,
+  "sapux": [
+    "app/managetravels"
+  ]
 }
