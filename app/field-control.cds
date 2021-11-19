@@ -87,3 +87,9 @@ annotate TravelService.Travel with @Common : {SideEffects : {
 }};
 
 //Exercise 4.5: Add side effect on ConnectionID
+annotate TravelService.Booking with
+@Common : {SideEffects #ConnectionID : {
+  $Type            : 'Common.SideEffectsType',
+  SourceProperties : [ConnectionID],
+  TargetProperties : ['to_Travel/TotalPrice']
+}};
