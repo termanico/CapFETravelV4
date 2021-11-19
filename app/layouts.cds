@@ -101,8 +101,8 @@ annotate TravelService.Travel with @UI : {
     }
   ],
   FieldGroup#GeneralData : { Data : [
-    { Value : to_Customer_CustomerID },    
     { Value : to_Agency_AgencyID     },
+      { Value : to_Customer_CustomerID },    
     {
       $Type       : 'UI.DataField',
       Value       : TravelStatus_code,
