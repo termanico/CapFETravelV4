@@ -208,6 +208,9 @@ annotate TravelService.Travel with {
         ![@UI.TextArrangement] : #TextFirst,
     }
 };
+annotate TravelService.Travel with {
+    Description @UI.MultiLineText : true
+};
 // Exercise 5: Booking entity Chart annotation
 
 
