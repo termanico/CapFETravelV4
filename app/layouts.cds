@@ -56,13 +56,13 @@ annotate TravelService.Travel with @UI : {
     { $Type  : 'UI.DataFieldForAction', Action : 'TravelService.rejectTravel',   Label  : '{i18n>RejectTravel}'   },
     { $Type  : 'UI.DataFieldForAction', Action : 'TravelService.deductDiscount', Label  : '{i18n>DeductDiscount}' },
     { Value : TravelID               },
+      { Value : TravelStatus_code      },
     { Value : to_Agency_AgencyID     },
     { Value : to_Customer_CustomerID },    
     { Value : BeginDate              },
     { Value : EndDate                },
     { Value : BookingFee             },
     { Value : TotalPrice             },
-    { Value : TravelStatus_code      },    
     { Value : Description            }
   ],
   /*
