@@ -127,11 +127,6 @@ annotate TravelService.Travel with @UI : {
           Target : '@UI.FieldGroup#i18nSustainability',
         }
       ]
-    },
-    { // booking list
-      $Type  : 'UI.ReferenceFacet',
-      Target : 'to_Booking/@UI.LineItem',
-      Label  : '{i18n>Booking}'
     }
   ],
   FieldGroup #GeneralData : {Data : [
