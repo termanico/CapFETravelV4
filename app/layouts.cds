@@ -202,6 +202,9 @@ annotate TravelService.BookingSupplement with @UI : {
   ],
 };
 
+annotate TravelService.Travel with {
+    to_Agency @Common.Text : to_Agency.Name
+};
 // Exercise 5: Booking entity Chart annotation
 
 
