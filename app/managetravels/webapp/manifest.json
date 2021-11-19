@@ -136,6 +136,21 @@
                                         "route": "BookingObjectPage"
                                     }
                                 }
+                            },
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "CustomSection": {
+                                            "name": "sap.fe.cap.managetravels.ext.fragment.CustomSection",
+                                            "position": {
+                                                "anchor": "Travel",
+                                                "placement": "After"
+                                            },
+                                            "type": "XMLFragment",
+                                            "title": "{i18n>myItinerary}"
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -150,8 +165,7 @@
                         }
                     }
                 }
-            },
-            "config": {}
+            }
         },
         "contentDensities": {
             "compact": true,
