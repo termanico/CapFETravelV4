@@ -15,9 +15,16 @@
 		<l:Grid
 			hSpacing="1"
 			containerQuery="true"
-			defaultSpan="L12 M12 S12"
+			defaultSpan="L6 M12 S12"
 		>
 			<l:content>
+				<macros:Chart
+					id="chartDefault"
+					contextPath="/Travel/to_BookedFlights"
+					metaPath="@com.sap.vocabularies.UI.v1.Chart"
+					personalization="Type,Item"
+					selectionMode="Single"
+				/>
 				<macros:Table
 					metaPath="to_Booking@com.sap.vocabularies.UI.v1.LineItem"
 					id="bookingTable"
