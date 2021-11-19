@@ -221,7 +221,16 @@ annotate TravelService.Travel with @(
     UI.FieldGroup #i18nSustainability : {
         $Type : 'UI.FieldGroupType',
         Data : [
-        ],
+            {
+                $Type : 'UI.DataField',
+                Value : GoGreen,
+            },{
+                $Type : 'UI.DataField',
+                Value : GreenFee,
+            },{
+                $Type : 'UI.DataField',
+                Value : TreesPlanted,
+            },],
     }
 );
 // Exercise 5: Booking entity Chart annotation
