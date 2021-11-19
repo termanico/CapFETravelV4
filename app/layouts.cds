@@ -96,39 +96,37 @@ annotate TravelService.Travel with @UI : {
   Facets define the layout of the form field groups on the object page
   Collection Facets group together reference facets, each representing a form field group
   */
-  Facets                  : [
-    {
-      $Type  : 'UI.CollectionFacet',
-      Label  : '{i18n>Travel}',
-      ID     : 'Travel',
-      Facets : [
-        { // general data
-          $Type  : 'UI.ReferenceFacet',
-          ID     : 'GeneralData',
-          Target : '@UI.FieldGroup#GeneralData',
-          Label  : '{i18n>Travel}'
-        },
-        { // price data
-          $Type  : 'UI.ReferenceFacet',
-          ID     : 'Prices',
-          Target : '@UI.FieldGroup#Prices',
-          Label  : '{i18n>Prices}'
-        },
-        { // dates
-          $Type  : 'UI.ReferenceFacet',
-          ID     : 'Dates',
-          Target : '@UI.FieldGroup#Dates',
-          Label  : '{i18n>Dates}'
-        },
-        {
-          $Type  : 'UI.ReferenceFacet',
-          Label  : '{i18n>Sustainability}',
-          ID     : 'i18nSustainability',
-          Target : '@UI.FieldGroup#i18nSustainability',
-        }
-      ]
-    }
-  ],
+  Facets                  : [{
+    $Type  : 'UI.CollectionFacet',
+    Label  : '{i18n>Travel}',
+    ID     : 'Travel',
+    Facets : [
+      { // general data
+        $Type  : 'UI.ReferenceFacet',
+        ID     : 'GeneralData',
+        Target : '@UI.FieldGroup#GeneralData',
+        Label  : '{i18n>Travel}'
+      },
+      { // price data
+        $Type  : 'UI.ReferenceFacet',
+        ID     : 'Prices',
+        Target : '@UI.FieldGroup#Prices',
+        Label  : '{i18n>Prices}'
+      },
+      { // dates
+        $Type  : 'UI.ReferenceFacet',
+        ID     : 'Dates',
+        Target : '@UI.FieldGroup#Dates',
+        Label  : '{i18n>Dates}'
+      },
+      {
+        $Type  : 'UI.ReferenceFacet',
+        Label  : '{i18n>Sustainability}',
+        ID     : 'i18nSustainability',
+        Target : '@UI.FieldGroup#i18nSustainability',
+      }
+    ]
+  }],
   FieldGroup #GeneralData : {Data : [
     {Value : to_Agency_AgencyID},
     {Value : to_Customer_CustomerID},
@@ -182,7 +180,12 @@ annotate TravelService.Booking with @UI : {
         ![@UI.Importance] : #High
       },
       //  Exercise 5: add chart table column
-
+      {
+        $Type             : 'UI.DataFieldForAnnotation',
+        Target            : '@UI.Chart#RadialCriticalityPath',
+        Label             : 'Customer VIP Status',
+        ![@UI.Importance] : #High,
+      },
       {
         Value             : to_Customer_CustomerID,
         ![@UI.Importance] : #High
@@ -285,7 +288,27 @@ annotate TravelService.Travel with @(UI.FieldGroup #i18nSustainability : {
     },
   ],
 });
-// Exercise 5: Booking entity Chart annotation
 
+// Exercise 5: Booking entity Chart annotation
+annotate TravelService.Booking with @(UI : {
+  Chart #RadialCriticalityPath : {
+    $Type             : 'UI.ChartDefinitionType',
+    Title             : 'Customer VIP Status',
+    Description       : 'VIP Customers are Eligible for Lounge Access',
+    ChartType         : #Donut,
+    Measures          : [BookedFlights],
+    MeasureAttributes : [{
+      $Type     : 'UI.ChartMeasureAttributeType',
+      Measure   : BookedFlights,
+      Role      : #Axis1,
+      DataPoint : '@UI.DataPoint#RadialValuePath'
+    }]
+  },
+  DataPoint #RadialValuePath   : {
+    Value       : BookedFlights,
+    TargetValue : to_Carrier.VIPCustomerBookings,
+    Criticality : EligibleForPrime
+  }
+});
 
 // Exercise 6: BookedFlights entity Chart annotation
