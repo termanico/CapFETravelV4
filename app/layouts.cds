@@ -160,6 +160,11 @@ annotate TravelService.Booking with @UI : {
     }
   },
   // Exercise 5: add chart header facet
+  HeaderFacets            : [{
+    $Type  : 'UI.ReferenceFacet',
+    Target : '@UI.Chart#RadialCriticalityPath',
+    Label  : 'Customer VIP Status'
+  }, ],
 
   PresentationVariant     : {
     Text           : 'Default',
