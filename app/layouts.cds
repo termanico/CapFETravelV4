@@ -317,3 +317,31 @@ annotate TravelService.Booking with @(UI : {
 });
 
 // Exercise 6: BookedFlights entity Chart annotation
+annotate TravelService.BookedFlights with @(UI : {Chart : {
+  $Type               : 'UI.ChartDefinitionType',
+  Title               : 'Total Bookings for Customer',
+  Description         : 'Chart Description',
+  ChartType           : #Column,
+  Measures            : [CountFlights],
+  Dimensions          : [
+    to_Customer_CustomerID,
+    AirlineID
+  ],
+  MeasureAttributes   : [{
+    $Type   : 'UI.ChartMeasureAttributeType',
+    Measure : CountFlights,
+    Role    : #Axis1
+  }],
+  DimensionAttributes : [
+    {
+      $Type     : 'UI.ChartDimensionAttributeType',
+      Dimension : to_Customer_CustomerID,
+      Role      : #Category
+    },
+    {
+      $Type     : 'UI.ChartDimensionAttributeType',
+      Dimension : AirlineID,
+      Role      : #Series
+    }
+  ]
+}});
